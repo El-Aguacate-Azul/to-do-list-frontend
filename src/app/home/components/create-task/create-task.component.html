@@ -1,0 +1,50 @@
+<form [formGroup]="createTaskForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Título</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Pizza"
+      value="Sushi"
+      formControlName="title"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Descripción</mat-label>
+    <textarea
+      matInput
+      placeholder="Ex. It makes me feel..."
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [ngxMatDatetimePicker]="picker"
+      placeholder="Choose a date"
+      formControlName="date"
+    />
+    <!-- [min]="minDate"
+      [max]="maxDate"
+      [disabled]="disabled" -->
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="$any(picker)"
+    ></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker [enableMeridian]="true">
+    </ngx-mat-datetime-picker>
+    <!-- [showSpinners]="showSpinners"
+      [showSeconds]="showSeconds"
+      [stepHour]="stepHour"
+      [stepMinute]="stepMinute"
+      [stepSecond]="stepSecond"
+      [touchUi]="touchUi"
+      [color]="color"
+      
+      [disableMinute]="disableMinute"
+      [hideTime]="hideTime" -->
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="addTask()">Primary</button>
+</form>
